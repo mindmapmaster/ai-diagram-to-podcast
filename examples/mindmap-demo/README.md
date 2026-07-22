@@ -1,29 +1,43 @@
-# Demo 1: 思维导图 → 播客
+# Demo 1: Mind Map → Podcast
 
-## 输入
+## Input
 
-一张「年中总结」思维导图（使用 ProcessOn 思维导图模板创建），包含 4 大模块：
-- 上半年工作回顾
-- 重点项目与成果
-- 经验总结
-- 下半年计划
+A "Mid-Year Summary" mind map created with ProcessOn, containing four major sections:
 
-## 处理流程
+- H1 Work Review
+- Key Projects & Achievements
+- Lessons Learned
+- H2 Plan
 
-1. **AI 结构识别**：读取思维导图图片，识别中心主题、4 个一级分支及其子节点
-2. **脚本生成**：将树状结构转化为知识分享型双主播对话，用案例引入每个模块
-3. **语音合成**：edge-tts 神经网络语音，男声 YunxiNeural + 女声 XiaoxiaoNeural
+## Source Diagram
 
-## 产物
+The original mind map was created with ProcessOn:
 
-| 文件 | 说明 |
-|------|------|
-| `mindmap-demo-script.md` | 双主播播客脚本（17 句 Host A + 15 句 Host B） |
-| `mindmap-demo.mp3` | 最终音频，约 5 分钟，192kbps MP3 |
+https://www.processon.com/view/629eefa31e08532ab7963343
 
-## 音频参数
+## Processing Pipeline
 
-- 男声 (Host A)：zh-CN-YunxiNeural，语速 -3%
-- 女声 (Host B)：zh-CN-XiaoxiaoNeural，语速 -1%
-- 句间停顿：0.38 秒
-- 段落停顿：0.65 秒
+1. **AI Structure Understanding**  
+   Reads the mind map image and identifies the central topic, four main branches, and related sub-nodes.
+
+2. **Podcast Script Generation**  
+   Converts the tree structure into a knowledge-sharing style dual-host conversation, using examples and discussions instead of simply reading nodes.
+
+3. **Neural Voice Synthesis**  
+   Generates the final podcast audio using edge-tts neural voices:
+   - Host A: zh-CN-YunxiNeural
+   - Host B: zh-CN-XiaoxiaoNeural
+
+## Output
+
+| File | Description |
+|------|-------------|
+| `mindmap-demo-script.md` | Dual-host podcast script (17 Host A lines + 15 Host B lines) |
+| `mindmap-demo.mp3` | Generated podcast audio, approximately 5 minutes, 192kbps MP3 |
+
+## Audio Configuration
+
+- Host A: zh-CN-YunxiNeural, speed -3%
+- Host B: zh-CN-XiaoxiaoNeural, speed -1%
+- Sentence pause: 0.38 seconds
+- Paragraph pause: 0.65 seconds
