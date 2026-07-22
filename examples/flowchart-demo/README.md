@@ -1,35 +1,52 @@
-# Demo 2: 流程图 → 播客
+# Demo 2: Flowchart → Podcast
 
-## 输入
+## Input
 
-一张「图书借阅管理系统业务流程图」，包含：
-- 登录验证（含循环重试）
-- 主功能选择（3 条并行分支）
-- 借阅确认（判断分支 + 回退）
-- 归还与逾期处理（双路径合并）
+A "Library Management System" business flowchart created with ProcessOn, containing:
 
-## 处理流程
+- Login authentication (with retry loop)
+- Main function selection (three parallel branches)
+- Borrowing confirmation (decision branch + rollback path)
+- Return and overdue handling (path merging)
 
-1. **AI 结构识别**：读取流程图图片，识别 15+ 节点、2 个判断菱形、2 处循环/合并、3 条并行分支
-2. **脚本生成**：将有向图结构转化为线性推进的双主播对话，在判断点插入提问，强调分支和回退路径
-3. **语音合成**：edge-tts 神经网络语音，男声 YunxiNeural + 女声 XiaoxiaoNeural
+## Source Diagram
 
-## 产物
+The original flowchart was created with ProcessOn:
 
-| 文件 | 说明 |
-|------|------|
-| `flowchart-demo-script.md` | 双主播播客脚本（22 句 Host A + 21 句 Host B） |
-| `flowchart-demo.mp3` | 最终音频，约 5.5 分钟，192kbps MP3 |
-| `structure-analysis.md` | AI 结构识别结果（节点、连接、判断分支、循环、合并） |
+https://www.processon.com/view/6a5f1878e240cc3a7dacbd4b
 
-## 音频参数
+## Processing Pipeline
 
-- 男声 (Host A)：zh-CN-YunxiNeural，语速 -3%
-- 女声 (Host B)：zh-CN-XiaoxiaoNeural，语速 -1%
-- 句间停顿：0.38 秒
-- 段落停顿：0.65 秒
+1. **AI Structure Understanding**  
+   Reads the flowchart image and identifies 15+ nodes, 2 decision points, 2 loop/merge structures, and 3 parallel branches.
 
-## 与思维导图 Demo 的关键差异
+2. **Podcast Script Generation**  
+   Converts the directed graph structure into a linear dual-host conversation, adding questions at decision points and explaining branches and rollback paths.
 
-流程图相比思维导图，对"结构理解"和"叙事转换"要求更高——
-详见 [docs/flowchart-vs-mindmap.md](../../docs/flowchart-vs-mindmap.md)。
+3. **Neural Voice Synthesis**  
+   Generates the final podcast audio using edge-tts neural voices:
+   - Host A: zh-CN-YunxiNeural
+   - Host B: zh-CN-XiaoxiaoNeural
+
+## Output
+
+| File | Description |
+|------|-------------|
+| `flowchart-demo-script.md` | Dual-host podcast script (22 Host A lines + 21 Host B lines) |
+| `flowchart-demo.mp3` | Generated podcast audio, approximately 5.5 minutes, 192kbps MP3 |
+| `structure-analysis.md` | AI structure analysis result (nodes, connections, decision branches, loops, and merges) |
+
+## Audio Configuration
+
+- Host A: zh-CN-YunxiNeural, speed -3%
+- Host B: zh-CN-XiaoxiaoNeural, speed -1%
+- Sentence pause: 0.38 seconds
+- Paragraph pause: 0.65 seconds
+
+## Key Difference from Mind Map Demo
+
+Compared with mind maps, flowcharts require stronger structural reasoning and narrative transformation.
+
+Flowcharts are directed graphs with sequences, decisions, loops, and merges, while mind maps are hierarchical structures that can be expanded in parallel.
+
+See [docs/flowchart-vs-mindmap.md](../../docs/flowchart-vs-mindmap.md).
